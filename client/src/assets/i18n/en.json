@@ -1,0 +1,11 @@
+{
+  "astula": "Astula",
+  "home": "Home",
+  "contact": "Contact",
+  "homePage": {
+    "home": "home works!"
+  },
+  "contactPage": {
+    "contact": "Contact works!"
+  }
+}

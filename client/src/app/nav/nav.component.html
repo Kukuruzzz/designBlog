@@ -1,4 +1,7 @@
 <div>
-  <a routerLink="/home" routerLinkActive="active">Home</a>
-  <a routerLink="/contact" routerLinkActive="active">Contact</a>
+  <a routerLink="/home" routerLinkActive="active">{{ 'home' | translate}}</a>
+  <a routerLink="/contact" routerLinkActive="active">{{ 'contact' | translate}}</a>
+  <div class="lang-bar">
+    <a (click)="chan"></a>
+  </div>
 </div>
