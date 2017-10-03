@@ -9,12 +9,12 @@ import { NavComponent } from './nav/nav.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 
+import {MaterialModule} from "./modules/material.module";
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 
-import { ButtonsModule } from 'ngx-bootstrap';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -39,8 +39,8 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    MaterialModule,
     HttpClientModule,
-    ButtonsModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
