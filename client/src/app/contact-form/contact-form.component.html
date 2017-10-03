@@ -1,0 +1,15 @@
+<form #contactForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+  <div class="form-group">
+    <input type="text" class="form-control"
+           [(ngModel)]="firstName" name="firstName" #name="ngModel"
+           placeholder="First Name" required>
+    <div [hidden]="name.valid || name.pristine"
+         class="alert alert-danger">Name is required</div>
+    <input class="form-control" name="lastName" [(ngModel)]="lastName" placeholder="last name" required>
+    <input class="form-control" name="company" [(ngModel)]="company" placeholder="company" required>
+    <input class="form-control" name="email" type="email" [(ngModel)]="email" required email placeholder="email" required>
+    <input class="form-control" name="phoneNumber" [(ngModel)]="phoneNumber" placeholder="phone number" required>
+    <textarea class="form-control" name="comments" [(ngModel)]="comments" placeholder="comments" required></textarea>
+    <button type="submit" class="btn btn-success" [disabled]="!contactForm.form.valid">Submit</button>
+  </div>
+</form>
