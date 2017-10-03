@@ -7,5 +7,10 @@
   },
   "contactPage": {
     "contact": "Контакт работает!"
+  },
+  "footer": {
+    "address": "Минск",
+    "ph": "тел",
+    "email": "почта"
   }
 }

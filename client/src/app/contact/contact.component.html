@@ -1,3 +1,14 @@
 <p>
   {{ 'contactPage.contact' | translate }}
 </p>
+<form #contactForm="ngForm" novalidate>
+  <div>
+    <input name="firsName" [(ngModel)]="firstName" placeholder="first name"><br>
+    <input name="secondName" [(ngModel)]="secondName" placeholder="second name"><br>
+    <input name="company" [(ngModel)]="company" placeholder="company"><br>
+    <input type="email" name="email" [(ngModel)]="email" required email placeholder="email"><br>
+    <input name="phoneNumber" [(ngModel)]="phoneNumber" placeholder="phone number"><br>
+    <textarea name="comments" [(ngModel)]="comments" placeholder="comments"></textarea><br>
+    <input type="submit">
+  </div>
+</form>

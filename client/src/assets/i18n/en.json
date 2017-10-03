@@ -7,5 +7,10 @@
   },
   "contactPage": {
     "contact": "Contact works!"
+  },
+  "footer": {
+    "address": "Minsk",
+    "ph": "ph",
+    "email": "email"
   }
 }

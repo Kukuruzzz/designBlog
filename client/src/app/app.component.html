@@ -1,13 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="main">
-  <h1>{{ 'astula' | translate }}</h1>
-  <button (click)="changeLang('en')">en</button>
-  <button (click)="changeLang('ru')">ru</button>
+  <h1 translate>astula</h1>
+  <a (click)="changeLang('en')">en</a>
+  <a (click)="changeLang('ru')">ru</a>
   <hr>
 
   <app-nav></app-nav>
   <hr>
   <router-outlet></router-outlet>
+  <hr>
   <app-footer></app-footer>
 </div>
 
