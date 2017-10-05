@@ -1,19 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from "@angular/router";
-import {FormsModule} from "@angular/forms";
+import { RouterModule, Routes } from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 
-import {MaterialModule} from "./modules/material.module";
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { AdminComponent } from './admin/admin.component';
+import { ManageContactsComponent } from './manage-contacts/manage-contacts.component';
+import {AdminModule} from './admin/admin.module';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -33,13 +35,13 @@ const appRoutes: Routes = [
     NavComponent,
     ContactComponent,
     FooterComponent,
-    ContactFormComponent
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    MaterialModule,
+    AdminModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

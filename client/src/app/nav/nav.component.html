@@ -1,7 +1,9 @@
 <div>
   <a routerLink="/home" routerLinkActive="active">{{ 'home' | translate}}</a>
   <a routerLink="/contact" routerLinkActive="active">{{ 'contact' | translate}}</a>
+  <a routerLink="/admin" routerLinkActive="active">Admin</a>
   <div class="lang-bar">
-    <a (click)="chan"></a>
+    <a (click)="changeLang('en')">en</a>
+    <a (click)="changeLang('ru')">ru</a>
   </div>
 </div>
