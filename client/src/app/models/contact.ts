@@ -9,5 +9,4 @@ export class Contact {
     public comments: string,
     public date: string
   ) {}
-
 }

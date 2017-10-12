@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Contact} from "../models/contact";
+
+import { Contact } from '../models/contact';
+import { ContactsService } from '../services/contacts.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -7,13 +9,15 @@ import {Contact} from "../models/contact";
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent implements OnInit {
+  constructor(private contactsService: ContactsService) { }
 
-  constructor() { }
-
+  submitForm(contact: Contact) {
+    this.contactsService.addContact(contact)
+      .map(x => console.log(x));
+  }
 
 
 
   ngOnInit() {
   }
-
 }

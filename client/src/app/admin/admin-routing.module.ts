@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http';
+
+import { ContactsService } from '../services/contacts.service';
 
 import { AdminComponent } from './admin.component';
 import { ManageContactsComponent } from '../manage-contacts/manage-contacts.component';
@@ -24,7 +27,11 @@ const adminRoutes: Routes = [
 
 @NgModule({
   imports: [
+    HttpModule,
     RouterModule.forChild(adminRoutes)
+  ],
+  providers: [
+    ContactsService
   ],
   exports: [
     RouterModule

@@ -1,3 +1,9 @@
-<p>
-  manage-contacts works!
-</p>
+{{ elem }}
+<div class="container">
+  <div class="row" *ngFor="let contact of contacts">
+    <div class="card card-block" (click)="showElem(contact._id)">
+      <h3 class="card-title">{{ contact.title }}</h3>
+      <p class="card-text">{{ contact.text }}</p>
+    </div>
+  </div>
+</div>
