@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ContactsService } from '../services/contacts.service';
+import { Contact } from '../models/contact';
 
 @Component({
   selector: 'app-manage-contacts',
@@ -8,20 +9,17 @@ import { ContactsService } from '../services/contacts.service';
   styleUrls: ['./manage-contacts.component.css']
 })
 export class ManageContactsComponent implements OnInit {
-  contacts: any = [];
-  elem: any = 'Emel';
+  contacts: Contact[] = [];
   constructor(private contactsService: ContactsService) { }
 
   ngOnInit() {
-    this.contactsService.getContacts()
-      .subscribe(contacts => {
-        this.contacts = contacts;
-      });
+    this.fetchContacts();
   }
-  showElem(id: any) {
-    this.contactsService.getContact(id)
-      .subscribe(elem => {
-        this.elem = elem.title;
-      });
+  fetchContacts() {
+    this.contactsService.getContacts()
+      .subscribe(data => { this.contacts = data; });
+  }
+  deleteContact(id: string) {
+    this.contactsService.deleteContact(id).subscribe(val => console.log('manage-contact: ' + val));
   }
 }

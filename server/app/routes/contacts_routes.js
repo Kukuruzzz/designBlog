@@ -1,4 +1,5 @@
 var ObjectID = require('mongodb').ObjectID;
+var bodyParser = require('body-parser');
 
 module.exports = function (app, db) {
     app.get('/contacts', (req, res) => {
@@ -23,8 +24,17 @@ module.exports = function (app, db) {
             }
         });
     });
-    app.post('/contacts', (req, res) => {
-        const contact = { text: req.body.body, title: req.body.title };
+    // Fix json.body is empty error: bodyParser is required param
+    app.post('/contacts', bodyParser.json(), (req, res) => {
+        const contact = {
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            company: req.body.company,
+            email: req.body.email,
+            phoneNumber: req.body.phoneNumber,
+            comments: req.body.comments,
+            date: Date.now()
+        };
         db.collection('contacts').insert(contact, (err, result) => {
             if (err) {
                 res.send({ 'error': 'We have an error!' });

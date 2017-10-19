@@ -50,9 +50,10 @@ const appRoutes: Routes = [
         deps: [HttpClient]
       }
     })
-
   ],
-  providers: [ContactsService],
+  providers: [
+    ContactsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
