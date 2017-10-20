@@ -16,6 +16,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { AdminModule } from './admin/admin.module';
 
 import { ContactsService } from './services/contacts.service';
+import { LoginComponent } from './login/login.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
     ContactComponent,
     FooterComponent,
     ContactFormComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

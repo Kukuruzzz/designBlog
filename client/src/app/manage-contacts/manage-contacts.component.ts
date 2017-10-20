@@ -20,6 +20,7 @@ export class ManageContactsComponent implements OnInit {
       .subscribe(data => { this.contacts = data; });
   }
   deleteContact(id: string) {
-    this.contactsService.deleteContact(id).subscribe(val => console.log('manage-contact: ' + val));
+    this.contactsService.deleteContact(id).subscribe();
+    this.fetchContacts();
   }
 }

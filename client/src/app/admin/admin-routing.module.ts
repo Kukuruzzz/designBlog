@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { ContactsService } from '../services/contacts.service';
+import { AuthGuard } from '../services/auth-guard.service';
 
 import { AdminComponent } from './admin.component';
 import { ManageContactsComponent } from '../manage-contacts/manage-contacts.component';
@@ -11,7 +12,7 @@ const adminRoutes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
-    // canActivate: [],
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
