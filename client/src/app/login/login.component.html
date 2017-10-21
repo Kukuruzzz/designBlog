@@ -1,3 +1,8 @@
-<p>
-  login works!
-</p>
+<form #loginForm="ngForm" (ngSubmit)="login(user)" novalidate>
+  <div class="form-group">
+    <input class="form-control" type="text" name="username" [(ngModel)]="user.username" required>
+    <input class="form-control" type="password" name="password" [(ngModel)]="user.password" required>
+    <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">login</button>
+    {{ errorMessage }}
+  </div>
+</form>

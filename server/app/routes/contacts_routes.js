@@ -43,7 +43,7 @@ module.exports = function (app, db) {
             }
         });
     });
-    app.delete('/contacts/:id', (req, res) => {
+    app.delete('/contacts/:id', bodyParser.json(), (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
         db.collection('contacts').remove(details, (err, item) => {

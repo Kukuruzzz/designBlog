@@ -9,9 +9,13 @@ import { AuthService } from './auth.service';
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
-  canActivate(router: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const url: string = state.url;
-    return this.checkLogin(url);
+  canActivate(): boolean {
+    if (localStorage.getItem('currentUser')) {
+      return true;
+    } else {
+      this.router.navigate(['/login']);
+      return false;
+    }
   }
   checkLogin(url: string): boolean {
     if (this.authService.isLoggedIn = true) {

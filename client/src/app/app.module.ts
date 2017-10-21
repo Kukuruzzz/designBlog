@@ -8,15 +8,18 @@ import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
 
+import { AdminModule } from './admin/admin.module';
+import { LoginRoutingModule } from './login/login-routing.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-import { AdminModule } from './admin/admin.module';
 
 import { ContactsService } from './services/contacts.service';
-import { LoginComponent } from './login/login.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth-guard.service';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -26,6 +29,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: '/home' }
 ];
 
@@ -44,6 +48,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     AdminModule,
+    LoginRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -54,7 +59,9 @@ const appRoutes: Routes = [
     })
   ],
   providers: [
-    ContactsService
+    ContactsService,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

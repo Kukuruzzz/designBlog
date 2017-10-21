@@ -1,6 +1,6 @@
 <form #contactForm="ngForm" (ngSubmit)="onSubmit(contact)" novalidate>
   <div class="form-group">
-    <input type="text" class="form-control" [(ngModel)]="contact.firstName" name="firstName" placeholder="First Name" required>
+    <input class="form-control" [(ngModel)]="contact.firstName" name="firstName" placeholder="First Name" required>
     <input class="form-control" name="lastName" [(ngModel)]="contact.lastName" placeholder="last name" required>
     <input class="form-control" name="company" [(ngModel)]="contact.company" placeholder="company" required>
     <input class="form-control" name="email" type="email" [(ngModel)]="contact.email" email placeholder="email" required>

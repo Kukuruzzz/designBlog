@@ -17,6 +17,9 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 });
+app.post('api/login', (req, res) => {
+    res.json('post resp');
+});
 MongoClient.connect(db.url, (err, database) => {
     if (err) return console.log(err);
     routes(app, database);
