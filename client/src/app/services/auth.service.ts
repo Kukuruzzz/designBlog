@@ -7,15 +7,13 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
-  public token: string;
-  private serverAuthUrl = 'url';
+  private serverAuthUrl = 'http://localhost:3000/login';
 
   isLoggedIn = false;
   redirectUrl: string;
 
   constructor(private http: Http) {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.token = currentUser && currentUser.token;
   }
 
   login(username: string, password: string): Observable<boolean> {
@@ -25,10 +23,9 @@ export class AuthService {
 
     return this.http.post(this.serverAuthUrl, body, options)
       .map((res: Response) => {
-        const token = res.json();
-        if (token) {
-          this.token = token;
-          localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
+        if (res) {
+          this.isLoggedIn = true;
+          localStorage.setItem('adminUserAccess', 'access is allowed');
           return true;
         } else {
           return false;
@@ -36,7 +33,7 @@ export class AuthService {
       });
   }
   logout(): void {
-    this.token = null;
-    localStorage.removeItem('currentUser');
+    this.isLoggedIn = false;
+    localStorage.removeItem('adminUserAccess');
   }
 }

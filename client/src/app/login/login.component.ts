@@ -17,12 +17,11 @@ export class LoginComponent {
 
   login(user: User) {
     this.authService.login(user.username, user.password)
-      .subscribe(res => {
-        if (res === true) {
-          this.user = null;
-          this.router.navigate(['/']);
-        } else {
-          this.errorMessage = 'Username or password incorrect';
+      .subscribe(() => {
+        if (this.authService.isLoggedIn) {
+          const redirect = this.authService.redirectUrl ?
+            this.authService.redirectUrl : '/admin/contacts';
+          this.router.navigate([redirect]);
         }
       });
   }

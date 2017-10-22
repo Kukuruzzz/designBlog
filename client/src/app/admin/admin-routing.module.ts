@@ -16,6 +16,7 @@ const adminRoutes: Routes = [
     children: [
       {
         path: '',
+        canActivateChild: [AuthGuard],
         children: [
           { path: 'contacts', component: ManageContactsComponent },
           { path: '', redirectTo: 'contacts', pathMatch: 'full' },

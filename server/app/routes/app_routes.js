@@ -2,6 +2,14 @@ var ObjectID = require('mongodb').ObjectID;
 var bodyParser = require('body-parser');
 
 module.exports = function (app, db) {
+    app.post('/login', (req, res) => {
+        let user = { username: req.body.username, password: req.body.password };
+        if(user.username == 'admin' && user.password == 'admin') {
+            res.send(true)
+        } else {
+            res.send('error');
+        }
+    });
     app.get('/contacts', (req, res) => {
         db.collection('contacts')
             .find().toArray((err, items) => {
