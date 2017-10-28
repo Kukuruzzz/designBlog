@@ -20,6 +20,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ContactsService } from './services/contacts.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
+import { AgmCoreModule } from '@agm/core';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -56,6 +57,9 @@ const appRoutes: Routes = [
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
+    }),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBfKN7Tj1k1_zsWlBoawLbX7CETegnzp6M'
     })
   ],
   providers: [

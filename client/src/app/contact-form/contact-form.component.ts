@@ -10,6 +10,9 @@ import { ContactsService } from '../services/contacts.service';
 })
 export class ContactFormComponent implements OnInit {
   contact: Object = {}; // Fix ERROR TypeError: Cannot read property 'firstName' of undefined at Object.eval
+  // Coordinates for GoogleMaps
+  lat = 53.897544;
+  lng = 27.604867;
 
   constructor(private contactsService: ContactsService) { }
 

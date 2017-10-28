@@ -1,4 +1,28 @@
-.main {
-  text-align: center;
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
+.grid {
+  display: grid;
+  grid-gap: 2vw;
+  margin: 10px;
+  /*grid-template-rows: repeat(3, auto);*/
+}
+
+.grid-header {
+  text-align: center;
+  grid-row: 1 / 2;
+}
+
+.grid-nav {
+  grid-row: 2 / 3;
+}
+
+.grid-section {
+  grid-row: 3 / 4;
+}
+
+.grid-footer {
+  grid-row: 4 / 5;
+}

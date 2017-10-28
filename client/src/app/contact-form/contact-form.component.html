@@ -1,11 +1,18 @@
-<form #contactForm="ngForm" (ngSubmit)="onSubmit(contact)" novalidate>
-  <div class="form-group">
-    <input class="form-control" [(ngModel)]="contact.firstName" name="firstName" placeholder="First Name" required>
-    <input class="form-control" name="lastName" [(ngModel)]="contact.lastName" placeholder="last name" required>
-    <input class="form-control" name="company" [(ngModel)]="contact.company" placeholder="company" required>
-    <input class="form-control" name="email" type="email" [(ngModel)]="contact.email" email placeholder="email" required>
-    <input class="form-control" name="phoneNumber" [(ngModel)]="contact.phoneNumber" placeholder="phone number" required>
-    <textarea class="form-control" name="comments" [(ngModel)]="contact.comments" placeholder="comments" required></textarea>
-    <button type="submit" class="btn btn-success" [disabled]="!contactForm.form.valid">Submit</button>
-  </div>
-</form>
+<div>
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="11">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+</div>
+<div>
+  <form #contactForm="ngForm" (ngSubmit)="onSubmit(contact)" novalidate>
+    <div class="form-group">
+      <input class="form-control" [(ngModel)]="contact.firstName" name="firstName" placeholder="First Name" required>
+      <input class="form-control" name="lastName" [(ngModel)]="contact.lastName" placeholder="last name" required>
+      <input class="form-control" name="company" [(ngModel)]="contact.company" placeholder="company" required>
+      <input class="form-control" name="email" type="email" [(ngModel)]="contact.email" email placeholder="email" required>
+      <input class="form-control" name="phoneNumber" [(ngModel)]="contact.phoneNumber" placeholder="phone number" required>
+      <textarea class="form-control" name="comments" [(ngModel)]="contact.comments" placeholder="comments" required></textarea>
+      <button type="submit" class="btn btn-success" [disabled]="!contactForm.form.valid">Submit</button>
+    </div>
+  </form>
+</div>
