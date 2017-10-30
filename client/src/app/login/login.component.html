@@ -1,8 +1,9 @@
 <form #loginForm="ngForm" (ngSubmit)="login(user)" novalidate>
-  <div class="form-group">
-    <input class="form-control" type="text" name="username" [(ngModel)]="user.username" required>
-    <input class="form-control" type="password" name="password" [(ngModel)]="user.password" required>
-    <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">login</button>
-    {{ errorMessage }}
-  </div>
+  <md-form-field>
+    <input mdInput type="text" name="username" [(ngModel)]="user.username" required>
+  </md-form-field>
+  <md-form-field>
+    <input mdInput type="password" name="password" [(ngModel)]="user.password" required>
+  </md-form-field>
+  <button md-button type="submit" [disabled]="!loginForm.form.valid">login</button>
 </form>

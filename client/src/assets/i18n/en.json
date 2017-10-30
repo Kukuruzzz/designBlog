@@ -10,7 +10,15 @@
     "p3": "Original meaning of Astula was a plank of wood, little piece that originates a creation. Here comes our statement - we provide unique and original materials and manufacturers in USA for creative professionals, studios and atelier"
   },
   "contactPage": {
-    "contact": "Contact works!"
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "company": "Company",
+      "email": "Email",
+      "phoneNumber": "Phone Number",
+      "comments": "Comments",
+      "submit": "Submit"
+    }
   },
   "footer": {
     "address": "Minsk",

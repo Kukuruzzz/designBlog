@@ -6,7 +6,15 @@
     "home": "Главная работает!"
   },
   "contactPage": {
-    "contact": "Контакт работает!"
+    "form": {
+      "firstName": "Имя",
+      "lastName": "Фамилия",
+      "company": "Компания",
+      "email": "Почта",
+      "phoneNumber": "Телефон",
+      "comments": "Комментарий",
+      "submit": "Отправить"
+    }
   },
   "footer": {
     "address": "Минск",

@@ -1,7 +1,20 @@
 
-<div class="container">
-  <div class="row" *ngFor="let contact of contacts">
-    <button (click)="deleteContact(contact._id)">x</button>
-    <p>{{ contact.firstName }}</p>
-  </div>
-</div>
+<md-card *ngFor="let contact of contacts">
+  <md-card-header>
+    <md-card-title>{{ contact.firstName}} {{ contact.lastName }}</md-card-title>
+    <md-card-subtitle>{{ contact.company }}</md-card-subtitle>
+  </md-card-header>
+  <md-expansion-panel>
+    <md-expansion-panel-header>
+      <md-panel-description>
+        Message
+      </md-panel-description>
+    </md-expansion-panel-header>
+    <md-card-content>
+      <p>{{ contact.comments }}</p>
+    </md-card-content>
+  </md-expansion-panel>
+  <md-card-actions>
+    <button md-button (click)="deleteContact(contact._id)">Delete</button>
+  </md-card-actions>
+</md-card>

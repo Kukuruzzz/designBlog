@@ -6,14 +6,14 @@ import {AdminComponent} from './admin.component';
 import { ManageContactsComponent } from '../manage-contacts/manage-contacts.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule } from '@angular/material';
+import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MatExpansionModule} from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
     AdminRoutingModule,
     BrowserAnimationsModule,
-    MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule
+    MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MatExpansionModule
 
   ],
   declarations: [

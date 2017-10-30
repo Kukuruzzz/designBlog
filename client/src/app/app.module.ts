@@ -22,6 +22,8 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { AgmCoreModule } from '@agm/core';
 
+import { MaterialModule } from './material.module';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -51,6 +53,7 @@ const appRoutes: Routes = [
     AdminModule,
     LoginRoutingModule,
     HttpClientModule,
+    MaterialModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
