@@ -1,15 +1,15 @@
 <div class="grid">
   <header class="grid-header">
     <h1>{{ 'astula' | translate}}</h1>
-    <a (click)="changeLang('en')">en</a>
-    <a (click)="changeLang('ru')">ru</a>
+    <button (click)="changeLang('en')">en</button>
+    <button (click)="changeLang('ru')">ru</button>
   </header>
+
   <nav class="grid-nav">
     <app-nav></app-nav>
   </nav>
-  <section class="grid-section">
-    <router-outlet></router-outlet>
-  </section>
+
+  <router-outlet></router-outlet>
   <footer class="grid-footer">
     <app-footer></app-footer>
   </footer>

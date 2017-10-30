@@ -1,5 +1,7 @@
-<p>
-  {{ 'contactPage.contact' | translate }}
+<div class="contactsGrid">
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
 
-</p>
-<app-contact-form></app-contact-form>
+  <app-contact-form class="form"></app-contact-form>
+</div>

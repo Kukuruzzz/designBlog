@@ -2,8 +2,33 @@
 input.ng-touched.ng-invalid {border:solid red 2px;}
 input.ng-touched.ng-valid {border:solid green 2px;}
 
-agm-map {
-  height: 400px;
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+}
+
+input, textarea {
+  font-family: SansSerif;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 3px 0;
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
+  /*background: transparent;*/
+  border-bottom: 1px solid black;
+}
+
+textarea {
+  resize: vertical;
+}
+
+@media(min-width: 350px) {
+  .form {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
 }
 
 

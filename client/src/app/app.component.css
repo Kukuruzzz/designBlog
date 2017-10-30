@@ -1,28 +1,30 @@
-html, body {
-  margin: 0;
-  padding: 0;
-}
 
 .grid {
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+
   display: grid;
-  grid-gap: 2vw;
-  margin: 10px;
-  /*grid-template-rows: repeat(3, auto);*/
+
+  grid-gap: 20px;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
 }
 
 .grid-header {
   text-align: center;
-  grid-row: 1 / 2;
+  /*background: url("img/img-background.jpg") no-repeat center;*/
+
 }
 
-.grid-nav {
-  grid-row: 2 / 3;
-}
-
-.grid-section {
-  grid-row: 3 / 4;
+.grid-header button {
+  background: transparent;
+  border: none;
 }
 
 .grid-footer {
-  grid-row: 4 / 5;
+  text-align: center;
 }
+
+
