@@ -11,7 +11,6 @@ import { User } from '../models/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  errorMessage = '';
   user: Object = {};
   constructor(public authService: AuthService, public router: Router) { }
 
