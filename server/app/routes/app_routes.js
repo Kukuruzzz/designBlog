@@ -1,24 +1,33 @@
 var ObjectID = require('mongodb').ObjectID;
 var bodyParser = require('body-parser');
+var jwt = require('jsonwebtoken');
+var key = require('../../config/token_key');
 
 module.exports = function (app, db) {
     app.post('/login', bodyParser.json(), (req, res) => {
-        let user = { username: req.body.username, password: req.body.password };
-        if(user.username == 'admin' && user.password == 'admin') {
-            res.send(true)
+        const user = { username: req.body.username, password: req.body.password };
+        if(user.username === 'admin' && user.password === 'admin') {
+            const token = jwt.sign({ user }, key.toString());
+            res.json({ token: token, isLoggedIn: true });
         } else {
             res.send('error');
         }
     });
-    app.get('/contacts', (req, res) => {
-        db.collection('contacts')
-            .find().toArray((err, items) => {
+    app.get('/contacts', ensureToken, (req, res) => {
+        jwt.verify(req.token, key.toString(), (err, data) => {
             if (err) {
-                console.log({ 'error': 'An error!' });
+                res.sendStatus(403);
             } else {
-                res.send(items);
+                db.collection('contacts')
+                    .find().toArray((err, items) => {
+                    if (err) {
+                        console.log({ 'error': 'An error!' });
+                    } else {
+                        res.send(items);
+                    }
+                });
             }
-        });
+        })
     });
     app.get('/contacts/:id', (req, res) => {
         const id = req.params.id;
@@ -75,4 +84,16 @@ module.exports = function (app, db) {
             }
         });
     });
+
+    function ensureToken (req, res, next) {
+        const bearerHeader = req.headers['authorization'];
+        if (typeof bearerHeader !== 'undefined') {
+            const bearer = bearerHeader.split(' ');
+            const bearerToken = bearer[1];
+            req.token = bearerToken;
+            next()
+        } else {
+            res.sendStatus(403);
+        }
+    }
 };
