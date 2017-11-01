@@ -5,17 +5,25 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import {Contact} from '../models/contact';
+import {  Contact} from '../models/contact';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class ContactsService {
   private serverUrl = 'http://localhost:3000/contacts';
 
-  constructor(private http: Http) {
+  constructor(
+    private http: Http,
+    private authService: AuthService) {
   }
 
   getContacts(): Observable<Contact[]> {
-    return this.http.get(this.serverUrl)
+    const headers = new Headers({
+      'Authorization': 'Bearer ' + this.authService.token,
+      'Content-Type' : 'application/x-www-form-urlencoded'
+    });
+    const options = new RequestOptions({ headers: headers });
+    return this.http.get(this.serverUrl, options)
       .map((res: Response) => res.json());
   }
   getContact(id: any) {

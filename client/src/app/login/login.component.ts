@@ -11,20 +11,16 @@ import { User } from '../models/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
   user: Object = {};
-  constructor(public authService: AuthService, public router: Router) { }
+  constructor(public authService: AuthService, private router: Router) { }
 
   login(user: User) {
-    this.authService.login(user.username, user.password)
-      .subscribe(() => {
-        if (this.authService.isLoggedIn) {
-          const redirect = this.authService.redirectUrl ?
-            this.authService.redirectUrl : '/admin/contacts';
-          this.router.navigate([redirect]);
+    this.authService.login(user)
+      .subscribe(res => {
+        if (res === true) {
+          this.router.navigate([this.authService.redirectUrl]);
         }
       });
-  }
-  logout() {
-    this.authService.logout();
   }
 }

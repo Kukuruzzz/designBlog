@@ -3,29 +3,31 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { User } from '../models/user';
 
 
 @Injectable()
 export class AuthService {
   private serverAuthUrl = 'http://localhost:3000/login';
-
-  isLoggedIn = false;
+  public token: string;
   redirectUrl: string;
 
   constructor(private http: Http) {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = currentUser && currentUser.token;
   }
 
-  login(username: string, password: string): Observable<boolean> {
-    const body = JSON.stringify({ username: username, password: password });
+  login(user: User): Observable<boolean> {
+    const body = JSON.stringify({ username: user.username, password: user.password });
     const headers = new Headers({ 'Content-type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
 
     return this.http.post(this.serverAuthUrl, body, options)
       .map((res: Response) => {
-        if (res) {
-          this.isLoggedIn = true;
-          localStorage.setItem('adminUserAccess', 'access is allowed');
+        const token = res.json() && res.json().token;
+        if (token) {
+          this.token = token;
+          localStorage.setItem('currentUser', JSON.stringify({ username: user.username, token: token }));
           return true;
         } else {
           return false;
@@ -33,7 +35,7 @@ export class AuthService {
       });
   }
   logout(): void {
-    this.isLoggedIn = false;
-    localStorage.removeItem('adminUserAccess');
+    this.token = null;
+    localStorage.removeItem('currentUser');
   }
 }

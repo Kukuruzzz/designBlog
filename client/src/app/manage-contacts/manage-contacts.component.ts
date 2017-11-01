@@ -17,12 +17,14 @@ export class ManageContactsComponent implements OnInit {
   }
   fetchContacts() {
     this.contactsService.getContacts()
-      .subscribe(data => { this.contacts = data; });
+      .subscribe(data => this.contacts = data);
   }
   deleteContact(id: string) {
-    if ( confirm('Are you sure?')) {
-      this.contactsService.deleteContact(id).subscribe(() => {});
+    if ( confirm('Are you sure?') ) {
+      this.contactsService.deleteContact(id).subscribe();
       this.fetchContacts();
+      // this.contactsService.getContacts()
+      //   .subscribe(data => this.contacts = data);
     }
   }
 }

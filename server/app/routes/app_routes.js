@@ -8,7 +8,7 @@ module.exports = function (app, db) {
         const user = { username: req.body.username, password: req.body.password };
         if(user.username === 'admin' && user.password === 'admin') {
             const token = jwt.sign({ user }, key.toString());
-            res.json({ token: token, isLoggedIn: true });
+            res.json({ token: token });
         } else {
             res.send('error');
         }
@@ -21,7 +21,7 @@ module.exports = function (app, db) {
                 db.collection('contacts')
                     .find().toArray((err, items) => {
                     if (err) {
-                        console.log({ 'error': 'An error!' });
+                        res.sendStatus(403);
                     } else {
                         res.send(items);
                     }

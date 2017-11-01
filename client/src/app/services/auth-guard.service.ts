@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     return this.canActivate(route, state);
   }
   checkLogin(url: string): boolean {
-    if (this.authService.isLoggedIn) {
+    if (localStorage.getItem('currentUser')) {
       return true;
     } else {
       this.authService.redirectUrl = url;
