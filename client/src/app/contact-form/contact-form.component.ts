@@ -9,10 +9,10 @@ import { ContactsService } from '../services/contacts.service';
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent implements OnInit {
-  contact: Object = {}; // Fix ERROR TypeError: Cannot read property 'firstName' of undefined at Object.eval
+  contact: any = {}; // Fix ERROR TypeError: Cannot read property 'firstName' of undefined at Object.eval
 
 
-  constructor(private contactsService: ContactsService) { }
+  constructor(private contactsService: ContactsService) {}
 
   onSubmit(contact: Contact) {
     this.contactsService.addContact(contact).subscribe();
