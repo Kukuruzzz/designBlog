@@ -18,4 +18,4 @@ import { MdButtonModule, MatFormFieldModule, MatInputModule, MdCardModule } from
     MdButtonModule, MatFormFieldModule, MatInputModule, MdCardModule
   ]
 })
-export class MaterialModule { }
+export class AppMaterialModule { }
