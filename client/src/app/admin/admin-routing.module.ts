@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
+// servicies
 import { ContactsService } from '../services/contacts.service';
 import { AuthGuard } from '../services/auth-guard.service';
 
@@ -10,7 +11,7 @@ import { ManageContactsComponent } from '../manage-contacts/manage-contacts.comp
 
 const adminRoutes: Routes = [
   {
-    path: 'admin',
+    path: '',
     component: AdminComponent,
     canActivate: [AuthGuard],
     children: [

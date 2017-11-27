@@ -12,7 +12,7 @@ import { User } from '../models/user';
 })
 export class LoginComponent {
 
-  user: Object = {};
+  user: any = {};
   constructor(public authService: AuthService, private router: Router) { }
 
   login(user: User) {
