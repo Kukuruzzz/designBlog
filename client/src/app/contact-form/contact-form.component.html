@@ -2,24 +2,24 @@
 <form class="form" #contactForm="ngForm" (ngSubmit)="onSubmit(contact)" novalidate>
 
   <md-form-field>
-    <input mdInput name="firstName" [(ngModel)]="contact.firstName" placeholder="{{ 'contactPage.form.firstName' | translate }}" required>
+    <input mdInput name="firstName" [(ngModel)]="contact.firstName" placeholder="First Name" required>
   </md-form-field>
   <md-form-field>
-    <input mdInput name="lastName" [(ngModel)]="contact.lastName" placeholder="{{ 'contactPage.form.lastName' | translate }}" required>
+    <input mdInput name="lastName" [(ngModel)]="contact.lastName" placeholder="Last Name" required>
   </md-form-field>
   <md-form-field>
-    <input mdInput name="company" [(ngModel)]="contact.company" placeholder="{{ 'contactPage.form.company' | translate }}" required>
+    <input mdInput name="company" [(ngModel)]="contact.company" placeholder="Company" required>
   </md-form-field>
   <md-form-field>
-  <input mdInput name="email" type="email" [(ngModel)]="contact.email" email placeholder="{{ 'contactPage.form.email' | translate }}" required>
+  <input mdInput name="email" type="email" [(ngModel)]="contact.email" email placeholder="Email" required>
   </md-form-field>
   <md-form-field>
-    <input mdInput name="phoneNumber" [(ngModel)]="contact.phoneNumber" placeholder="{{ 'contactPage.form.phoneNumber' | translate }}" required>
+    <input mdInput name="phoneNumber" [(ngModel)]="contact.phoneNumber" placeholder="Phone Number" required>
   </md-form-field>
   <md-form-field>
-    <textarea mdInput name="comments" [(ngModel)]="contact.comments" placeholder="{{ 'contactPage.form.comments' | translate }}"></textarea>
+    <textarea mdInput name="comments" [(ngModel)]="contact.comments" placeholder="Comments"></textarea>
   </md-form-field>
-  <button md-button type="submit" [disabled]="!contactForm.form.valid">{{ 'contactPage.form.submit' | translate }}</button>
+  <button md-button type="submit" [disabled]="!contactForm.form.valid">Submit</button>
 
 
 
