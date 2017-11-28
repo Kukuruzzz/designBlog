@@ -1,11 +1,16 @@
 var express = require('express');
 var router = express.Router();
+<<<<<<< HEAD
 var jwt = require('jsonwebtoken');
+=======
+
+>>>>>>> origin/express
 var bodyParser = require('body-parser');
 
 // MongoDB and Mongoose libraries
 var MongoClient = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
+<<<<<<< HEAD
 var key = require('../config/token_key');
 var db = require('../config/db');
 
@@ -39,6 +44,30 @@ router.get('/', ensureToken, (req, res) => {
         };
     })
 
+=======
+
+var jwt = require('jsonwebtoken');
+var key = require('../config/token_key');
+
+// Ensure Token & JWT verification
+router.use(ensureToken, (req, res, next) => {
+    jwt.verify(req.token, key.toString(), (err, data) => {
+        if (err) {
+            res.sendStatus(403);
+        } else next();
+    })
+});
+
+router.get('/', ensureToken, (req, res) => {
+    db.collection('contacts')
+    .find().toArray((err, items) => {
+        if (err) {
+            res.sendStatus(403);
+        } else {
+            res.send(items);
+        }
+    });
+>>>>>>> origin/express
 });
 
 // Fix json.body is empty error: bodyParser is required param
@@ -63,6 +92,7 @@ router.post('/', bodyParser.json(), (req, res) => {
 router.delete('/:id', bodyParser.json(), (req, res) => {
     const id = req.params.id;
     const details = { '_id': new ObjectID(id) };
+<<<<<<< HEAD
 
     jwt.verify(req.token, key.toString(), (err, data) => {
         if (err) {
@@ -83,11 +113,21 @@ router.delete('/:id', bodyParser.json(), (req, res) => {
             });   
         };
     })
+=======
+    db.collection('contacts').remove(details, (err, item) => {
+        if (err) {
+            res.send({ 'error': 'An error!'});
+        } else {
+            res.send('Contacts ' + id + ' deleted');
+        }
+    });
+>>>>>>> origin/express
 });
 router.put('/:id', (req, res) => {
     const id = req.params.id;
     const details = { '_id': new ObjectID(id) };
     const contact = { text: req.body.body, title: req.body.title };
+<<<<<<< HEAD
     
     jwt.verify(req.token, key.toString(), (err, data) => {
         if (err) {
@@ -107,6 +147,16 @@ router.put('/:id', (req, res) => {
             });   
         };
     })
+=======
+
+    db.collection('contacts').update(details, contact, (err, result) => {
+        if (err) {
+            res.send({ 'error': 'An error!'});
+        } else {
+            res.send(contact);
+        }
+    });
+>>>>>>> origin/express
 });
 
 function ensureToken (req, res, next) {
