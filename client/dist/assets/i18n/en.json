@@ -1,0 +1,29 @@
+{
+  "astula": "Astula",
+  "home": "Home",
+  "contact": "Contact",
+  "projects": "Projects",
+  "homePage": {
+    "home": "home works!",
+    "title": "What does \"Astula\" mean?",
+    "p1": "The word Astula comes from Latin and is known in modern language as Atelier, a workshop or studio, esp. of an artist, artisan, or designer.",
+    "p2": "1830–40; < F: lit., pile of chips (hence, workshop); OF astele  chip (< LL astella,  dim. of L astula,  var. of assula splinter, equiv. to ass ( is ) plank + -ula -ule) + -ier -ier.",
+    "p3": "Original meaning of Astula was a plank of wood, little piece that originates a creation. Here comes our statement - we provide unique and original materials and manufacturers in USA for creative professionals, studios and atelier"
+  },
+  "contactPage": {
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "company": "Company",
+      "email": "Email",
+      "phoneNumber": "Phone Number",
+      "comments": "Comments",
+      "submit": "Submit"
+    }
+  },
+  "footer": {
+    "address": "Minsk",
+    "ph": "ph",
+    "email": "email"
+  }
+}
