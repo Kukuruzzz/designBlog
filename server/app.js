@@ -6,7 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var contacts = require('./routes/contact');
+var contacts = require('./routes/contacts');
+var projects = require('./routes/projects');
 var login = require('./routes/login');
 
 var app = express();
@@ -18,7 +19,7 @@ app.set('view engine', 'jade');
 // Fix error: No 'Access-Control-Allow-Origin'
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   next();
 });
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/contacts', contacts);
+app.use('/projects', projects);
 app.use('/login', login);
 
 // catch 404 and forward to error handler
