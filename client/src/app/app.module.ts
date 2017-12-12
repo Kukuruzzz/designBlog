@@ -22,6 +22,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppMaterialModule } from './app-material.module';
 import { AgmCoreModule } from '@agm/core';
+import { FileDropDirective, FileSelectDirective } from 'ng2-file-upload';
 
 // Servicies
 import { ContactsService } from './services/contacts.service';
@@ -50,7 +51,9 @@ const appRoutes: Routes = [
     FooterComponent,
     ContactFormComponent,
     LoginComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    FileDropDirective,
+    FileSelectDirective
 ],
   imports: [
     BrowserModule,

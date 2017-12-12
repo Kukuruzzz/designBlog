@@ -4,6 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var multer = require('multer');
+
+var DIR = './public/images';
+
+var upload = multer({ dest: DIR });
 
 var index = require('./routes/index');
 var contacts = require('./routes/contacts');
@@ -21,6 +26,7 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
 
@@ -31,6 +37,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// app.use(multer({
+//   dest: DIR,
+//   rename: function (fieldname, filename) {
+//     return filename + Date.now();
+//   },
+//   onFileUploadStart: function (file) {
+//     console.log(file.originalname + ' is starting ...');
+//   },
+//   onFileUploadComplete: function (file) {
+//     console.log(file.fieldname + ' uploaded to  ' + file.path);
+//   }
+// }));
 
 app.use('/', index);
 app.use('/contacts', contacts);
